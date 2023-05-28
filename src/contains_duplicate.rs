@@ -26,7 +26,7 @@ fn contains_duplicate(mut nums: Vec<i32>) -> bool {
     // [1, 2], [2, 3], [3, 4]
     // We then use the any() method to check if any of the slices contain the same value.
     // If they do, it'll return true (short-circuit), otherwise it'll return false.
-    nums.windows(2).any(|window| window[0] == window[1])
+    return nums.windows(2).any(|window| window[0] == window[1]);
 }
 
 #[cfg(test)]

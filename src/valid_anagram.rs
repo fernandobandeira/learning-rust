@@ -29,7 +29,7 @@ mod tests {
             vec!["anagram", "nagaram"],
             vec!["rat", "car"],
             vec!["foo", "fooo"],
-            vec!["foo", "off"]
+            vec!["foo", "off"],
         ];
         let expected = vec![true, false, false, false];
 
