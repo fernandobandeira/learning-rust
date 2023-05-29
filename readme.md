@@ -18,3 +18,4 @@ I have a few rules for this challenge:
 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) | Easy |
 | [Valid Anagram](https://leetcode.com/problems/valid-anagram/) | Easy |
 | [Two Sum](https://leetcode.com/problems/two-sum/) | Easy |
+| [Group Anagrams](https://leetcode.com/problems/group-anagrams/) | Medium |

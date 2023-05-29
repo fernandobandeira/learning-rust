@@ -50,12 +50,12 @@ mod tests {
     }
 
     #[bench]
-    fn bench_simple_contains(b: &mut Bencher) {
+    fn bench_contains_duplicate_simple(b: &mut Bencher) {
         b.iter(|| contains_duplicate_simple(vec![1, 2, 3, 1]));
     }
 
     #[bench]
-    fn bench_optimized_contains(b: &mut Bencher) {
+    fn bench_contains_duplicate(b: &mut Bencher) {
         b.iter(|| contains_duplicate(vec![1, 2, 3, 1]));
     }
 }

@@ -53,23 +53,12 @@ mod tests {
 
     #[test]
     fn test_examples() {
-        let inputs = vec![
-            (vec![2, 7, 11, 15], 9),
-            (vec![3, 2, 4], 6),
-            (vec![3, 3], 6),
-        ];
-        let expected = vec![
-            vec![0,1],
-            vec![1,2],
-            vec![0,1],
-        ];
+        let inputs = vec![(vec![2, 7, 11, 15], 9), (vec![3, 2, 4], 6), (vec![3, 3], 6)];
+        let expected = vec![vec![0, 1], vec![1, 2], vec![0, 1]];
 
         // zip() will create a tuple of each element in the two vectors.
         for (input, expected) in inputs.into_iter().zip(expected) {
-            assert_eq!(
-                two_sum(input.0, input.1),
-                expected
-            );
+            assert_eq!(two_sum(input.0, input.1), expected);
         }
     }
 
@@ -79,7 +68,7 @@ mod tests {
     }
 
     #[bench]
-    fn bench_two_sum_optimized(b: &mut Bencher) {
+    fn bench_two_sum(b: &mut Bencher) {
         b.iter(|| two_sum(vec![2, 7, 11, 15], 9));
     }
 }

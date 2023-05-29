@@ -1,5 +1,3 @@
-use std::iter::Iterator;
-
 fn valid_anagram_simple(s: String, t: String) -> bool {
     // If the strings have different lengths, they can't be anagrams.
     if s.len() != t.len() {
@@ -19,7 +17,7 @@ fn valid_anagram_simple(s: String, t: String) -> bool {
 }
 
 const ALPHABET_SIZE: usize = 26;
-const ASCII_OFFSET: usize = 97;
+const ASCII_OFFSET: usize = 'a' as usize;
 fn valid_anagram(s: String, t: String) -> bool {
     // If the strings have different lengths, they can't be anagrams.
     if s.len() != t.len() {
@@ -66,19 +64,19 @@ mod tests {
         // zip() will create a tuple of each element in the two vectors.
         for (input, expected) in inputs.into_iter().zip(expected) {
             assert_eq!(
-                valid_anagram(String::from(input[0]), String::from(input[1])),
+                valid_anagram(input[0].to_string(), input[1].to_string()),
                 expected
             );
         }
     }
 
     #[bench]
-    fn bench_simple_contains(b: &mut Bencher) {
-        b.iter(|| valid_anagram_simple(String::from("anagram"), String::from("nagaram")));
+    fn bench_valid_anagram_simple(b: &mut Bencher) {
+        b.iter(|| valid_anagram_simple("anagram".to_string(), "nagaram".to_string()));
     }
 
     #[bench]
-    fn bench_optimized_contains(b: &mut Bencher) {
-        b.iter(|| valid_anagram(String::from("anagram"), String::from("nagaram")));
+    fn bench_valid_anagram(b: &mut Bencher) {
+        b.iter(|| valid_anagram("anagram".to_string(), "nagaram".to_string()));
     }
 }

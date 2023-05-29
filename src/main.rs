@@ -3,8 +3,14 @@
 
 extern crate test;
 
+macro_rules! vec_of_strings {
+    ($($x:expr),*) => (vec![$($x.to_string()),*]);
+}
+
+// 1 - Arrays & Hashing
 mod contains_duplicate;
-mod valid_anagram;
+mod group_anagrams;
 mod two_sum;
+mod valid_anagram;
 
 fn main() {}
