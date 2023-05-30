@@ -4,7 +4,6 @@ fn valid_anagram_simple(s: String, t: String) -> bool {
         return false;
     }
 
-    // First, we convert the strings into vectors of characters.
     let mut s_iter: Vec<char> = s.chars().collect();
     let mut t_iter: Vec<char> = t.chars().collect();
 
@@ -24,12 +23,11 @@ fn valid_anagram(s: String, t: String) -> bool {
         return false;
     }
 
-    // We convert the strings into byte arrays.
-    let s_bytes = s.as_bytes();
-    let t_bytes = t.as_bytes();
+    let s_bytes: &[u8] = s.as_bytes();
+    let t_bytes: &[u8] = t.as_bytes();
 
     // This problem only deals with lowercase letters, so we can use a fixed-size array.
-    let mut char_counts = [0; ALPHABET_SIZE];
+    let mut char_counts: [i32; 26] = [0; ALPHABET_SIZE];
 
     for index in 0..s_bytes.len() {
         // We subtract the ASCII offset to get the index of the character in the array.
@@ -53,15 +51,14 @@ mod tests {
 
     #[test]
     fn test_examples() {
-        let inputs = vec![
+        let inputs: Vec<Vec<&str>> = vec![
             vec!["anagram", "nagaram"],
             vec!["rat", "car"],
             vec!["foo", "fooo"],
             vec!["foo", "off"],
         ];
-        let expected = vec![true, false, false, false];
+        let expected: Vec<bool> = vec![true, false, false, false];
 
-        // zip() will create a tuple of each element in the two vectors.
         for (input, expected) in inputs.into_iter().zip(expected) {
             assert_eq!(
                 valid_anagram(input[0].to_string(), input[1].to_string()),
