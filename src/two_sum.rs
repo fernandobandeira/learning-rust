@@ -45,7 +45,8 @@ mod tests {
 
     #[test]
     fn test_examples() {
-        let inputs: Vec<(Vec<i32>, i32)> = vec![(vec![2, 7, 11, 15], 9), (vec![3, 2, 4], 6), (vec![3, 3], 6)];
+        let inputs: Vec<(Vec<i32>, i32)> =
+            vec![(vec![2, 7, 11, 15], 9), (vec![3, 2, 4], 6), (vec![3, 3], 6)];
         let expected: Vec<Vec<i32>> = vec![vec![0, 1], vec![1, 2], vec![0, 1]];
 
         for (input, expected) in inputs.into_iter().zip(expected) {
